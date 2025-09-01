@@ -1,0 +1,5 @@
+{
+  "name": "Simulador de Pêndulo de Newton",
+  "description": "Uma simulação interativa de física do Pêndulo de Newton, projetada para que estudantes do ensino médio explorem os conceitos de conservação de momento e energia.",
+  "requestFramePermissions": []
+}

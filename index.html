@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Pêndulo de Newton</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes swing-left {
+        0%, 100% {
+          transform: rotate(40deg);
+        }
+        25% {
+          transform: rotate(0deg);
+        }
+        75% {
+          transform: rotate(0deg);
+        }
+      }
+
+      @keyframes swing-right {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(-40deg);
+        }
+        75% {
+          transform: rotate(0deg);
+        }
+      }
+
+      @keyframes subtle-impact {
+        0%, 24.8%, 25.2%, 74.8%, 75.2%, 100% { transform: translateX(0); }
+        25% { transform: translateX(1.5px); }
+        75% { transform: translateX(-1.5px); }
+      }
+
+      @keyframes impact-force-ltr {
+        0%, 24%, 26%, 100% { opacity: 0; transform: translateX(-4px) scaleX(0); }
+        25% { opacity: 1; transform: translateX(0) scaleX(1); }
+      }
+
+      @keyframes impact-force-rtl {
+        0%, 74%, 76%, 100% { opacity: 0; transform: translateX(4px) scaleX(0); }
+        75% { opacity: 1; transform: translateX(0) scaleX(1); }
+      }
+
+      @keyframes counter-swing-left {
+        0%, 100% { transform: rotate(-40deg); }
+        25% { transform: rotate(0deg); }
+        75% { transform: rotate(0deg); }
+      }
+
+      @keyframes counter-swing-right {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(0deg); }
+        50% { transform: rotate(40deg); }
+        75% { transform: rotate(0deg); }
+      }
+
+      @keyframes fade-in-scale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% {
+          box-shadow: 0 0 8px rgba(45, 212, 191, 0);
+        }
+        50% {
+          box-shadow: 0 0 20px 2px rgba(45, 212, 191, 0.6);
+        }
+      }
+
+      .animate-swing-left {
+        animation: swing-left 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+
+      .animate-swing-right {
+        animation: swing-right 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+      
+      .animate-subtle-impact {
+        animation: subtle-impact 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+      
+      .animate-impact-force-ltr {
+        animation: impact-force-ltr 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+
+      .animate-impact-force-rtl {
+        animation: impact-force-rtl 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+
+      .animate-fade-in-scale {
+        animation: fade-in-scale 0.3s ease-out forwards;
+      }
+
+      .animate-counter-swing-left {
+        animation: counter-swing-left 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+      
+      .animate-counter-swing-right {
+        animation: counter-swing-right 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+
+      .animate-pulse-glow {
+        animation: pulse-glow 2s ease-in-out infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-900 text-slate-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
